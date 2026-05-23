@@ -324,13 +324,24 @@ footer{
   .form-wrap{flex-direction:column;border-radius:18px;padding:10px}
   .form-wrap button{border-radius:14px;padding:13px;width:100%}
 }
+
+.cta-big{
+  display:inline-block;
+  background:var(--purple);color:var(--white);
+  padding:14px 32px;border-radius:99px;
+  font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;
+  text-decoration:none;transition:all .2s;
+  box-shadow:0 8px 24px rgba(124,58,237,0.25);
+  margin-bottom:.85rem;
+}
+.cta-big:hover{background:var(--ink);transform:translateY(-2px)}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="logo">me<b>lo</b></div>
-  <a href="#join" class="nav-btn">Join waitlist</a>
+  <a href="https://tally.so/r/b568ZL" target="_blank" class="nav-btn">Join waitlist</a>
 </nav>
 
 <!-- HERO -->
@@ -338,11 +349,7 @@ footer{
   <div class="pill"><span class="dot"></span> Early access open now</div>
   <h1>You track your sleep.<br>Your steps. Your heart.<br><i>What about your connections?</i></h1>
   <p class="hero-sub">Melo gives you a daily score for your social health so you finally understand why some days feel lonely even when you are not alone.</p>
-  <div class="form-wrap" id="hf">
-    <input type="email" id="he" placeholder="your@email.com"/>
-    <button onclick="go('he','hf','hs')">Get early access →</button>
-  </div>
-  <div id="hs" class="success">✦ You are on the list. We will reach out soon.</div>
+  <a href="https://tally.so/r/b568ZL" target="_blank" class="cta-big">Get early access →</a>
   <p class="form-note">Free · No spam · Cancel anytime</p>
 </section>
 
@@ -513,27 +520,13 @@ footer{
   <div class="bottom-inner">
     <h2>Ready to understand<br>your <i>social health?</i></h2>
     <p>Join the waitlist. Be first when Melo launches. It is free.</p>
-    <div class="form-wrap" id="bf" style="max-width:380px">
-      <input type="email" id="be" placeholder="your@email.com"/>
-      <button onclick="go('be','bf','bs')">Join waitlist →</button>
-    </div>
-    <div id="bs" class="success">✦ You are in. See you soon.</div>
+    <a href="https://tally.so/r/b568ZL" target="_blank" class="cta-big">Join waitlist →</a>
     <p class="form-note">Free · No spam · Cancel anytime</p>
   </div>
 </section>
 
 <footer>© 2026 Melo · Making social health visible</footer>
 
-<script>
-function go(i,f,s){
-  var v=document.getElementById(i).value.trim();
-  if(!v||!v.includes('@')){
-    document.getElementById(i).style.outline='2px solid rgba(124,58,237,0.5)';
-    document.getElementById(i).focus();return;
-  }
-  document.getElementById(f).style.display='none';
-  document.getElementById(s).style.display='block';
-}
-</script>
+
 </body>
 </html>
