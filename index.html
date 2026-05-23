@@ -3,338 +3,319 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Melo — Feel good about your connections</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<title>Melo — Your social health score</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --world:#F5EEFF;
   --world2:#EEE0FF;
   --world3:#E4D4FC;
-
   --purple:#7C3AED;
   --purple-mid:#9333EA;
   --purple-light:#C4B5FD;
-  --purple-pale:#F5F0FF;
-
   --ink:#2D1654;
   --muted:#7B6A9A;
-  --faint:#B8A8D4;
+  --faint:#C4B8D0;
   --white:#FFFFFF;
-
   --border:rgba(124,58,237,0.12);
-  --border2:rgba(124,58,237,0.2);
-  --radius:22px;
+  --border2:rgba(124,58,237,0.22);
 }
 html{scroll-behavior:smooth}
-body{
-  font-family:'DM Sans',sans-serif;
-  background:var(--world);
-  color:var(--ink);
-  line-height:1.6;
-  overflow-x:hidden;
-}
+body{font-family:'DM Sans',sans-serif;background:var(--world);color:var(--ink);overflow-x:hidden;line-height:1.6}
 
-/* NAV */
 nav{
   display:flex;justify-content:space-between;align-items:center;
-  padding:1.25rem 2.5rem;
-  background:rgba(245,238,255,0.88);
+  padding:1.1rem 2rem;
+  background:rgba(245,238,255,0.92);
   border-bottom:1px solid var(--border);
   position:sticky;top:0;z-index:100;
   backdrop-filter:blur(20px);
 }
-.logo{
-  font-family:'Cormorant Garamond',serif;
-  font-size:28px;font-weight:600;
-  color:var(--ink);letter-spacing:.2px;
-}
-.logo b{color:var(--purple);font-weight:600}
+.logo{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--ink)}
+.logo b{color:var(--purple)}
 .nav-btn{
-  background:var(--purple);color:var(--white);border:none;
-  padding:10px 24px;border-radius:99px;
-  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;
-  cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;
-  box-shadow:0 4px 16px rgba(124,58,237,0.3);
+  background:var(--purple);color:#fff;border:none;
+  padding:9px 22px;border-radius:99px;
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;
+  cursor:pointer;text-decoration:none;display:inline-block;
+  box-shadow:0 4px 14px rgba(124,58,237,0.3);transition:all .2s;
 }
 .nav-btn:hover{background:var(--ink);transform:translateY(-1px)}
 
-/* HERO */
-.hero{
-  padding:6rem 2rem 4rem;
-  max-width:600px;margin:0 auto;text-align:center;
+/* FEELING STRIP — opens the page with a feeling not a feature */
+.feeling{
+  text-align:center;
+  padding:3.5rem 2rem 2rem;
+  max-width:640px;margin:0 auto;
 }
-.pill{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--purple);color:var(--white);
-  font-size:12px;font-weight:500;padding:7px 18px;
-  border-radius:99px;margin-bottom:2.25rem;
-  letter-spacing:.3px;
-}
-.dot{width:6px;height:6px;background:var(--purple-light);border-radius:50%;animation:blink 2s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-
-h1{
+.feeling-q{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(44px,6.5vw,70px);
-  font-weight:500;line-height:1.08;
-  letter-spacing:-.5px;color:var(--ink);margin-bottom:1.5rem;
-}
-h1 i{font-style:italic;color:var(--purple);font-weight:400}
-
-.hero-sub{
-  font-size:18px;font-weight:300;color:var(--muted);
-  max-width:420px;margin:0 auto 3rem;line-height:1.85;
-}
-
-/* FORM */
-.form-wrap{
-  background:var(--white);
-  border:none;border-radius:99px;
-  display:flex;gap:6px;padding:6px 6px 6px 22px;
-  max-width:400px;margin:0 auto .85rem;
-  box-shadow:0 8px 32px rgba(124,58,237,0.2);
-}
-.form-wrap input{
-  flex:1;border:none;background:transparent;
-  font-family:'DM Sans',sans-serif;font-size:15px;
-  color:var(--ink);outline:none;min-width:0;font-weight:400;
-}
-.form-wrap input::placeholder{color:var(--faint)}
-.form-wrap button{
-  background:var(--purple);color:var(--white);border:none;
-  padding:11px 22px;border-radius:99px;
-  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;
-  cursor:pointer;transition:all .2s;white-space:nowrap;flex-shrink:0;
-}
-.form-wrap button:hover{background:var(--ink)}
-.form-note{font-size:12px;color:var(--muted);font-weight:300}
-.success{display:none;color:var(--purple);font-size:14px;font-weight:500;padding:.75rem;text-align:center}
-
-/* SCORE CARD */
-.mockup{padding:0 2rem 3rem;max-width:440px;margin:0 auto}
-.score-card{
-  background:var(--white);
-  border-radius:var(--radius);padding:2rem;margin-bottom:12px;
-  box-shadow:0 12px 48px rgba(124,58,237,0.12);
-}
-.sc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}
-.sc-eye{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--faint)}
-.sc-today{
-  background:var(--world);color:var(--purple);
-  font-size:12px;font-weight:500;padding:5px 14px;border-radius:99px;
-}
-.sc-num{
-  font-family:'Cormorant Garamond',serif;
-  font-size:80px;font-weight:500;
-  line-height:1;color:var(--ink);letter-spacing:-3px;margin-bottom:.25rem;
-}
-.sc-row{display:flex;align-items:center;gap:10px;margin-bottom:.85rem}
-.sc-badge{
-  background:var(--world);color:var(--purple);
-  font-size:13px;font-weight:500;
-  padding:5px 14px;border-radius:99px;
-}
-.sc-status{font-size:14px;font-weight:300;color:var(--muted)}
-.bar{height:5px;background:var(--world2);border-radius:99px;overflow:hidden}
-.bar-fill{
-  height:100%;width:74%;border-radius:99px;
-  background:linear-gradient(90deg,var(--purple-light),var(--purple));
-}
-
-/* INSIGHT CARDS */
-.insight{
-  background:var(--white);
-  border-radius:18px;padding:1.15rem 1.3rem;
-  display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;
-  box-shadow:0 4px 20px rgba(124,58,237,0.08);
-  transition:transform .2s;
-}
-.insight:hover{transform:translateY(-2px)}
-.i-dot{
-  width:10px;height:10px;border-radius:50%;
-  flex-shrink:0;margin-top:5px;
-}
-.id1{background:var(--purple)}
-.id2{background:var(--purple-light)}
-.id3{background:var(--world3)}
-.i-title{font-size:14px;font-weight:500;color:var(--ink);line-height:1.4;margin-bottom:2px}
-.i-sub{font-size:12px;color:var(--muted);font-weight:300}
-
-/* SHARED */
-.sec-wrap{padding:5rem 2rem;max-width:640px;margin:0 auto}
-.sec-label{
-  font-size:11px;font-weight:500;text-transform:uppercase;
-  letter-spacing:.15em;color:var(--purple);
-  margin-bottom:.75rem;text-align:center;
-}
-.sec-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(30px,4.5vw,48px);
-  font-weight:500;letter-spacing:-.5px;color:var(--ink);
-  text-align:center;margin-bottom:.85rem;line-height:1.15;
-}
-.sec-title i{font-style:italic;color:var(--purple);font-weight:400}
-.sec-sub{
-  font-size:16px;font-weight:300;color:var(--muted);
-  text-align:center;max-width:460px;
-  margin:0 auto 3rem;line-height:1.9;
-}
-
-/* WHAT CARDS */
-.what-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
-.what-card{
-  background:var(--white);
-  border-radius:20px;padding:1.75rem;
-  box-shadow:0 4px 24px rgba(124,58,237,0.08);
-  border-top:3px solid transparent;
-  transition:transform .2s,box-shadow .2s;
-}
-.what-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(124,58,237,0.14)}
-.wc1{border-top-color:var(--purple)}
-.wc2{border-top-color:var(--purple-light)}
-.wc3{border-top-color:var(--world3)}
-.what-card h3{
-  font-family:'Cormorant Garamond',serif;
-  font-size:20px;font-weight:500;color:var(--ink);
-  margin-bottom:.5rem;line-height:1.25;
-}
-.what-card p{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7}
-
-/* DIVIDER */
-.divider{
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--world3),transparent);
-  margin:0 2rem;
-}
-
-/* WHY */
-.why-list{display:flex;flex-direction:column;gap:12px}
-.why-item{
-  background:var(--white);
-  border-radius:18px;padding:1.5rem 1.75rem;
-  display:flex;align-items:flex-start;gap:16px;
-  box-shadow:0 4px 20px rgba(124,58,237,0.07);
-}
-.why-num{
-  font-family:'Cormorant Garamond',serif;
-  font-size:32px;font-weight:400;color:var(--purple-light);
-  line-height:1;flex-shrink:0;min-width:24px;
-}
-.why-item p{font-size:15px;font-weight:300;color:var(--muted);line-height:1.8}
-.why-item strong{font-weight:500;color:var(--ink)}
-
-/* STATS */
-.stats-wrap{
-  background:var(--world2);
-  padding:5rem 2rem;
-}
-.stats-inner{max-width:600px;margin:0 auto;text-align:center}
-.stats-q{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(24px,3.5vw,38px);
+  font-size:clamp(28px,4vw,44px);
   font-weight:400;font-style:italic;
-  color:var(--ink);letter-spacing:-.3px;
-  margin-bottom:2.75rem;line-height:1.4;
+  color:var(--ink);line-height:1.2;margin-bottom:1rem;
 }
-.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left}
-.stat-card{
-  background:var(--white);
-  border-radius:20px;padding:1.5rem 1.75rem;
-  box-shadow:0 4px 20px rgba(124,58,237,0.08);
+.feeling-sub{
+  font-size:16px;font-weight:300;color:var(--muted);
+  max-width:460px;margin:0 auto 2rem;line-height:1.85;
 }
-.stat-num{
-  font-family:'Cormorant Garamond',serif;
-  font-size:52px;font-weight:500;color:var(--purple);
-  line-height:1;margin-bottom:.4rem;letter-spacing:-1px;
+.feeling-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:2.5rem}
+.ftag{
+  background:var(--white);border:1.5px solid var(--border2);
+  color:var(--muted);font-size:13px;font-weight:400;
+  padding:7px 16px;border-radius:99px;
+  cursor:pointer;transition:all .2s;
 }
-.stat-text{font-size:13px;font-weight:300;color:var(--muted);line-height:1.6}
-
-/* HOW */
-.steps{display:flex;flex-direction:column;gap:12px}
-.step{
-  background:var(--white);
-  border-radius:18px;padding:1.5rem 1.75rem;
-  display:flex;align-items:flex-start;gap:1.25rem;
-  box-shadow:0 4px 20px rgba(124,58,237,0.07);
-}
-.step-n{
-  font-family:'Cormorant Garamond',serif;
-  font-size:36px;font-weight:400;
-  color:var(--purple-light);line-height:1;flex-shrink:0;
-}
-.step-title{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px}
-.step-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7}
-
-/* COMPARE */
-.compare-wrap{
-  background:var(--world2);
-  padding:5rem 2rem;
-}
-.compare-inner{max-width:520px;margin:0 auto}
-.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:2.5rem}
-.compare-col h3{
-  font-size:11px;font-weight:500;color:var(--faint);
-  margin-bottom:1rem;text-transform:uppercase;letter-spacing:.1em;
-}
-.compare-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
-.compare-col ul li{
-  font-size:14px;font-weight:300;color:var(--ink);
-  display:flex;align-items:flex-start;gap:10px;line-height:1.5;
-}
-.compare-col ul li::before{
-  content:'✓';color:var(--purple);font-weight:500;
-  font-size:13px;flex-shrink:0;margin-top:2px;
-}
-.compare-col.old ul li{color:var(--faint)}
-.compare-col.old ul li::before{content:'✕';color:var(--faint)}
-
-/* BOTTOM CTA */
-.bottom{
-  padding:7rem 2rem;text-align:center;
-}
-.bottom-inner{max-width:520px;margin:0 auto}
-.bottom h2{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(36px,5.5vw,58px);
-  font-weight:500;letter-spacing:-.5px;line-height:1.1;
-  color:var(--ink);margin-bottom:.85rem;
-}
-.bottom h2 i{font-style:italic;color:var(--purple);font-weight:400}
-.bottom p{
-  font-size:17px;font-weight:300;color:var(--muted);
-  margin-bottom:2.5rem;line-height:1.8;
-}
-
-footer{
-  text-align:center;padding:2rem;
-  font-size:12px;font-weight:300;color:var(--muted);
-  border-top:1px solid var(--border);
-}
-
-@media(max-width:600px){
-  nav{padding:1rem 1.25rem}
-  .hero{padding:4rem 1.25rem 2.5rem}
-  .mockup{padding:0 1.25rem 2rem}
-  .sec-wrap{padding:4rem 1.25rem}
-  .what-grid{grid-template-columns:1fr}
-  .stats-grid{grid-template-columns:1fr}
-  .compare-grid{grid-template-columns:1fr}
-  .stats-wrap,.compare-wrap{padding:4rem 1.25rem}
-  .form-wrap{flex-direction:column;border-radius:18px;padding:10px}
-  .form-wrap button{border-radius:14px;padding:13px;width:100%}
-}
-
-.cta-big{
+.ftag:hover,.ftag.active{background:var(--purple);color:#fff;border-color:var(--purple)}
+.cta-btn{
   display:inline-block;
-  background:var(--purple);color:var(--white);
-  padding:14px 32px;border-radius:99px;
+  background:var(--purple);color:#fff;
+  padding:13px 28px;border-radius:99px;
   font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;
   text-decoration:none;transition:all .2s;
   box-shadow:0 8px 24px rgba(124,58,237,0.25);
-  margin-bottom:.85rem;
 }
-.cta-big:hover{background:var(--ink);transform:translateY(-2px)}
+.cta-btn:hover{background:var(--ink);transform:translateY(-2px)}
+.cta-note{font-size:11px;color:var(--faint);margin-top:.6rem;text-align:center}
+
+/* HERO — two col */
+.hero{
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:4rem;
+  padding:2rem 3rem 4rem;
+  max-width:1000px;margin:0 auto;
+}
+.pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--purple);color:#fff;
+  font-size:12px;font-weight:500;padding:6px 16px;
+  border-radius:99px;margin-bottom:1.5rem;
+}
+.dot{width:6px;height:6px;background:var(--purple-light);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(36px,4vw,52px);
+  font-weight:500;line-height:1.1;
+  letter-spacing:-.5px;color:var(--ink);margin-bottom:1.25rem;
+}
+h1 i{font-style:italic;color:var(--purple)}
+.hero-sub{
+  font-size:16px;font-weight:300;color:var(--muted);
+  margin-bottom:2rem;line-height:1.85;max-width:360px;
+}
+
+/* PHONE MOCKUP */
+.phone{
+  background:var(--white);border-radius:32px;padding:1.75rem;
+  box-shadow:0 24px 64px rgba(124,58,237,0.14);
+  border:1.5px solid var(--border2);
+}
+.ph-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}
+.ph-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--faint)}
+.ph-today{background:var(--world);color:var(--purple);font-size:11px;font-weight:500;padding:4px 12px;border-radius:99px}
+.ph-score{display:flex;align-items:baseline;gap:10px;margin-bottom:.2rem}
+.ph-num{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:500;color:var(--ink);letter-spacing:-3px;line-height:1}
+.ph-badge{background:var(--world);color:var(--purple);font-size:12px;font-weight:500;padding:4px 12px;border-radius:99px}
+.ph-status{font-size:13px;color:var(--muted);font-weight:300;margin-bottom:1.25rem}
+.bars{display:flex;align-items:flex-end;gap:6px;height:64px;border-bottom:1px solid rgba(124,58,237,0.08);padding-bottom:4px;margin-bottom:5px}
+.bar{flex:1;border-radius:5px 5px 0 0;background:var(--world2)}
+.bar.hi{background:linear-gradient(180deg,var(--purple-mid),var(--purple-light))}
+.days{display:flex;gap:6px;margin-bottom:1.25rem}
+.days span{flex:1;text-align:center;font-size:9px;color:var(--faint)}
+.ins{display:flex;align-items:center;gap:9px;background:var(--world);border-radius:10px;padding:.6rem .85rem;margin-bottom:7px}
+.ins-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.ins p{font-size:12px;color:var(--ink);font-weight:400;line-height:1.35}
+
+/* WHAT IS SOCIAL HEALTH */
+.what{
+  background:var(--white);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:5rem 2rem;
+}
+.what-inner{max-width:900px;margin:0 auto}
+.sec-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.15em;color:var(--purple);margin-bottom:.6rem;text-align:center}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,3.5vw,42px);
+  font-weight:500;color:var(--ink);text-align:center;
+  margin-bottom:.75rem;line-height:1.15;letter-spacing:-.3px;
+}
+.sec-title i{font-style:italic;color:var(--purple)}
+.sec-sub{font-size:15px;font-weight:300;color:var(--muted);text-align:center;max-width:500px;margin:0 auto 3rem;line-height:1.85}
+.what-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.what-card{
+  border-radius:20px;padding:1.75rem;
+  border:1.5px solid var(--border);
+  transition:transform .2s,box-shadow .2s;cursor:default;
+}
+.what-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(124,58,237,0.1)}
+.wc1{background:var(--world);border-color:var(--border2)}
+.wc2{background:#F0FFF8;border-color:rgba(16,185,129,0.2)}
+.wc3{background:#FFF8F0;border-color:rgba(251,146,60,0.2)}
+.what-card .wtag{
+  font-size:11px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.1em;margin-bottom:.75rem;display:block;
+}
+.t1{color:var(--purple)}
+.t2{color:#059669}
+.t3{color:#EA580C}
+.what-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:500;color:var(--ink);
+  margin-bottom:.5rem;line-height:1.2;
+}
+.what-card p{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7}
+.what-example{
+  margin-top:1rem;
+  font-size:12px;font-weight:400;
+  font-style:italic;color:var(--muted);
+  padding:.6rem .85rem;
+  border-radius:8px;background:rgba(255,255,255,0.6);
+  border-left:2px solid currentColor;
+}
+
+/* WHY IT MATTERS */
+.why{padding:5rem 2rem;max-width:780px;margin:0 auto}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:2.5rem}
+.why-card{
+  background:var(--white);border-radius:20px;padding:1.75rem;
+  border:1px solid var(--border);
+  box-shadow:0 4px 20px rgba(124,58,237,0.06);
+}
+.why-stat{
+  font-family:'Cormorant Garamond',serif;
+  font-size:48px;font-weight:500;color:var(--purple);
+  line-height:1;margin-bottom:.4rem;letter-spacing:-1px;
+}
+.why-card h3{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:.4rem}
+.why-card p{font-size:13px;font-weight:300;color:var(--muted);line-height:1.65}
+
+/* DEMO */
+.demo-wrap{
+  background:var(--white);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:5rem 2rem;
+}
+.demo-inner{max-width:780px;margin:0 auto}
+.demo-phone{
+  background:var(--world);
+  border-radius:32px;padding:2rem;
+  max-width:380px;margin:0 auto;
+  box-shadow:0 16px 48px rgba(124,58,237,0.12);
+  border:1.5px solid var(--border2);
+  min-height:360px;
+}
+.screen{display:none;animation:fadeIn .3s ease}
+.screen.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.demo-greeting{
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;font-weight:500;color:var(--ink);
+  margin-bottom:.3rem;line-height:1.2;
+}
+.demo-sub{font-size:13px;font-weight:300;color:var(--muted);margin-bottom:1.5rem}
+.demo-opts{display:flex;flex-direction:column;gap:8px}
+.demo-opt{
+  background:var(--white);border:1.5px solid var(--border2);
+  border-radius:14px;padding:.85rem 1.1rem;
+  font-size:14px;font-weight:400;color:var(--ink);
+  cursor:pointer;transition:all .2s;text-align:left;
+  font-family:'DM Sans',sans-serif;
+}
+.demo-opt:hover,.demo-opt.sel{background:var(--purple);color:#fff;border-color:var(--purple)}
+.demo-people{display:flex;flex-wrap:wrap;gap:8px;margin-top:.75rem}
+.demo-person{
+  background:var(--white);border:1.5px solid var(--border2);
+  border-radius:99px;padding:7px 16px;
+  font-size:13px;cursor:pointer;transition:all .2s;
+  font-family:'DM Sans',sans-serif;color:var(--ink);
+}
+.demo-person:hover,.demo-person.sel{background:var(--purple);color:#fff;border-color:var(--purple)}
+.energy-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:.75rem}
+.energy-opt{
+  background:var(--white);border:1.5px solid var(--border2);
+  border-radius:16px;padding:1rem;text-align:center;
+  cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;
+}
+.energy-opt:hover,.energy-opt.sel{border-color:var(--purple);background:var(--world)}
+.energy-opt.sel{background:var(--purple);color:#fff}
+.e-emoji{font-size:24px;margin-bottom:.3rem;display:block}
+.e-label{font-size:13px;font-weight:500}
+.demo-next{
+  display:block;width:100%;margin-top:1.25rem;
+  background:var(--purple);color:#fff;border:none;
+  padding:12px;border-radius:99px;
+  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;
+  cursor:pointer;transition:all .2s;
+  box-shadow:0 4px 14px rgba(124,58,237,0.25);
+}
+.demo-next:hover{background:var(--ink)}
+.demo-next:disabled{opacity:.35;cursor:not-allowed}
+.prog{display:flex;justify-content:center;gap:6px;margin-bottom:1.5rem}
+.pdot{width:6px;height:6px;border-radius:50%;background:var(--world3);transition:all .3s}
+.pdot.on{background:var(--purple);width:20px;border-radius:99px}
+.result-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:88px;font-weight:500;color:var(--ink);
+  letter-spacing:-3px;line-height:1;
+  text-align:center;margin-bottom:.25rem;
+  animation:pop .6s ease;
+}
+@keyframes pop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+.result-label{text-align:center;font-size:14px;color:var(--purple);font-weight:500;margin-bottom:1.25rem}
+.result-insight{
+  background:var(--white);border-radius:14px;padding:1rem 1.1rem;
+  font-size:13px;color:var(--ink);line-height:1.6;
+  border-left:3px solid var(--purple);margin-bottom:1rem;
+}
+.restart-btn{
+  display:block;margin:.75rem auto 0;
+  background:transparent;border:1.5px solid var(--border2);
+  color:var(--muted);border-radius:99px;
+  padding:8px 20px;font-size:12px;
+  cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;
+}
+.restart-btn:hover{border-color:var(--purple);color:var(--purple)}
+
+/* FAQ */
+.faq-wrap{padding:5rem 2rem;max-width:620px;margin:0 auto}
+.faq-item{
+  background:var(--white);border-radius:16px;
+  padding:1.25rem 1.5rem;margin-bottom:10px;
+  border:1px solid var(--border);cursor:pointer;
+  transition:box-shadow .2s;
+}
+.faq-item:hover{box-shadow:0 4px 16px rgba(124,58,237,0.1)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:500;color:var(--ink)}
+.faq-icon{font-size:20px;color:var(--purple);transition:transform .3s;flex-shrink:0;margin-left:.5rem}
+.faq-a{font-size:14px;font-weight:300;color:var(--muted);line-height:1.7;margin-top:.75rem;display:none}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+
+/* BOTTOM */
+.bottom{
+  background:var(--world2);
+  border-top:1px solid var(--border2);
+  padding:5rem 2rem;text-align:center;
+}
+.bottom h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(30px,4vw,48px);
+  font-weight:500;letter-spacing:-.5px;line-height:1.1;
+  color:var(--ink);margin-bottom:.75rem;
+}
+.bottom h2 i{font-style:italic;color:var(--purple)}
+.bottom p{font-size:15px;font-weight:300;color:var(--muted);margin-bottom:2rem}
+
+footer{text-align:center;padding:1.5rem;font-size:11px;color:var(--faint);border-top:1px solid var(--border)}
+
+@media(max-width:700px){
+  .hero{grid-template-columns:1fr;padding:1.5rem 1.5rem 3rem;gap:2rem}
+  .what-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .feeling-tags{gap:6px}
+}
 </style>
 </head>
 <body>
@@ -344,189 +325,261 @@ footer{
   <a href="https://tally.so/r/b568ZL" target="_blank" class="nav-btn">Join waitlist</a>
 </nav>
 
+<!-- OPENING FEELING -->
+<section class="feeling">
+  <h2 class="feeling-q">Ever feel lonely even<br>when you are not alone?</h2>
+  <p class="feeling-sub">Most people feel it. Almost nobody can explain it. Tap what sounds familiar.</p>
+  <div class="feeling-tags">
+    <span class="ftag" onclick="this.classList.toggle('active')">I feel off but I don't know why</span>
+    <span class="ftag" onclick="this.classList.toggle('active')">I'm surrounded by people but still lonely</span>
+    <span class="ftag" onclick="this.classList.toggle('active')">Some people drain me completely</span>
+    <span class="ftag" onclick="this.classList.toggle('active')">I lose touch with people without noticing</span>
+    <span class="ftag" onclick="this.classList.toggle('active')">Good days and bad days with no pattern</span>
+    <span class="ftag" onclick="this.classList.toggle('active')">I never know if my relationships are healthy</span>
+  </div>
+  <a href="https://tally.so/r/b568ZL" target="_blank" class="cta-btn">Get early access →</a>
+  <p class="cta-note">Free · No spam · Cancel anytime</p>
+</section>
+
 <!-- HERO -->
 <section class="hero">
-  <div class="pill"><span class="dot"></span> Early access open now</div>
-  <h1>You track your sleep.<br>Your steps. Your heart.<br><i>What about your connections?</i></h1>
-  <p class="hero-sub">Melo gives you a daily score for your social health so you finally understand why some days feel lonely even when you are not alone.</p>
-  <a href="https://tally.so/r/b568ZL" target="_blank" class="cta-big">Get early access →</a>
-  <p class="form-note">Free · No spam · Cancel anytime</p>
+  <div class="hero-left">
+    <div class="pill"><span class="dot"></span> Early access open</div>
+    <h1>Your social health<br>finally has a<br><i>daily score.</i></h1>
+    <p class="hero-sub">Like Oura tracks your sleep and recovery, Melo tracks how connected you actually feel. One score. Real patterns. 30 seconds a day.</p>
+    <a href="https://tally.so/r/b568ZL" target="_blank" class="cta-btn">Get early access →</a>
+    <p class="cta-note" style="text-align:left">Free · No spam · Cancel anytime</p>
+  </div>
+  <div class="phone">
+    <div class="ph-top">
+      <span class="ph-label">Connection score</span>
+      <span class="ph-today">Today</span>
+    </div>
+    <div class="ph-score">
+      <span class="ph-num">74</span>
+      <span class="ph-badge">↑ 6 from yesterday</span>
+    </div>
+    <p class="ph-status">Good. Your social health is building.</p>
+    <div class="bars">
+      <div class="bar" style="height:45%"></div>
+      <div class="bar" style="height:60%"></div>
+      <div class="bar" style="height:38%"></div>
+      <div class="bar" style="height:72%"></div>
+      <div class="bar" style="height:55%"></div>
+      <div class="bar" style="height:63%"></div>
+      <div class="bar hi" style="height:74%"></div>
+    </div>
+    <div class="days"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+    <div class="ins">
+      <div class="ins-dot" style="background:var(--purple)"></div>
+      <p>You go quiet every Sunday — spotted across 6 weeks</p>
+    </div>
+    <div class="ins">
+      <div class="ins-dot" style="background:var(--purple-light)"></div>
+      <p>Strong week — 3 meaningful conversations above your average</p>
+    </div>
+  </div>
 </section>
-
-<!-- SCORE MOCKUP -->
-<div class="mockup">
-  <div class="score-card">
-    <div class="sc-top">
-      <span class="sc-eye">Connection score</span>
-      <span class="sc-today">Today</span>
-    </div>
-    <div class="sc-num">74</div>
-    <div class="sc-row">
-      <span class="sc-badge">↑ 6 from yesterday</span>
-      <span class="sc-status">Good. Your social health is building.</span>
-    </div>
-    <div class="bar"><div class="bar-fill"></div></div>
-  </div>
-  <div class="insight">
-    <div class="i-dot id1"></div>
-    <div>
-      <p class="i-title">You have been pulling away for 4 days</p>
-      <p class="i-sub">Your close circle score is below your usual baseline</p>
-    </div>
-  </div>
-  <div class="insight">
-    <div class="i-dot id2"></div>
-    <div>
-      <p class="i-title">Strong week with your people</p>
-      <p class="i-sub">3 meaningful conversations this week, above average for you</p>
-    </div>
-  </div>
-  <div class="insight">
-    <div class="i-dot id3"></div>
-    <div>
-      <p class="i-title">You go quiet every Sunday</p>
-      <p class="i-sub">Melo spotted this pattern across 6 weeks of your data</p>
-    </div>
-  </div>
-</div>
 
 <!-- WHAT IS SOCIAL HEALTH -->
-<div class="divider"></div>
-<section class="sec-wrap">
-  <p class="sec-label">What is social health</p>
-  <h2 class="sec-title">It is not how many friends you have</h2>
-  <p class="sec-sub">Social health is how good your relationships actually feel. You can have 500 followers and still feel completely alone. Melo measures the part nobody else does.</p>
-  <div class="what-grid">
-    <div class="what-card wc1">
-      <h3>How connected you feel</h3>
-      <p>Not how many people you spoke to but whether those conversations actually meant something to you</p>
-    </div>
-    <div class="what-card wc2">
-      <h3>Whether people drain or energise you</h3>
-      <p>Some relationships leave you feeling full. Others leave you exhausted. Social health tracks the difference</p>
-    </div>
-    <div class="what-card wc3">
-      <h3>Your patterns over time</h3>
-      <p>One bad day is noise. A pattern of withdrawal is a signal. Melo helps you see which one it is</p>
-    </div>
-  </div>
-</section>
-
-<!-- WHY MEASURE -->
-<div class="divider"></div>
-<section class="sec-wrap">
-  <p class="sec-label">Why measure it</p>
-  <h2 class="sec-title">Because what you can see, <i>you can change</i></h2>
-  <div class="why-list">
-    <div class="why-item">
-      <span class="why-num">01</span>
-      <p><strong>You already measure everything else.</strong> Sleep quality. Heart rate. Steps. Social health is the one piece of your wellbeing nobody is measuring and it affects everything else.</p>
-    </div>
-    <div class="why-item">
-      <span class="why-num">02</span>
-      <p><strong>Loneliness sneaks up on you.</strong> Most people only notice how disconnected they feel when it has already become a problem. A daily score catches it early.</p>
-    </div>
-    <div class="why-item">
-      <span class="why-num">03</span>
-      <p><strong>Patterns change behaviour naturally.</strong> When you see your score drop every Sunday or rise around certain people, you start making different choices on your own.</p>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<div class="stats-wrap">
-  <div class="stats-inner">
-    <p class="stats-q">"I feel off but I don't know why."<br>Melo helps you figure it out.</p>
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-num">27%</div>
-        <p class="stat-text">of adults feel lonely even with full social lives</p>
+<section class="what">
+  <div class="what-inner">
+    <p class="sec-label">What is social health</p>
+    <h2 class="sec-title">It is not how many friends you have.<br><i>It is how they make you feel.</i></h2>
+    <p class="sec-sub">Social health is the quality of your relationships and how much they support you. Most people have never measured it. Melo is the first app that does.</p>
+    <div class="what-grid">
+      <div class="what-card wc1">
+        <span class="wtag t1">Connection</span>
+        <h3>How connected you actually feel</h3>
+        <p>Not the number of texts you sent. Whether those conversations left you feeling seen and understood.</p>
+        <p class="what-example" style="border-left-color:var(--purple);color:var(--purple)">"Had a 2 hour call with my best friend. Score: 89."</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">67%</div>
-        <p class="stat-text">of people under 35 have felt disconnected without knowing why</p>
+      <div class="what-card wc2">
+        <span class="wtag t2">Energy</span>
+        <h3>Who drains vs who energises you</h3>
+        <p>Some people leave you full of life. Others leave you exhausted. Melo learns which is which for you.</p>
+        <p class="what-example" style="border-left-color:#059669;color:#059669">"After family dinner I always drop 10 points."</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">1 in 3</div>
-        <p class="stat-text">health trackers say social health is their biggest unmeasured gap</p>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">0</div>
-        <p class="stat-text">apps give you a daily social health score. Until now.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- HOW IT WORKS -->
-<section class="sec-wrap">
-  <p class="sec-label">How it works</p>
-  <h2 class="sec-title">Simple. <i>30 seconds a day.</i></h2>
-  <div class="steps">
-    <div class="step">
-      <span class="step-n">01</span>
-      <div>
-        <p class="step-title">Check in for 30 seconds each day</p>
-        <p class="step-desc">Three quick taps. How connected you felt, with who, and whether it left you energised or drained. That is it.</p>
-      </div>
-    </div>
-    <div class="step">
-      <span class="step-n">02</span>
-      <div>
-        <p class="step-title">Melo learns your personal baseline</p>
-        <p class="step-desc">Over your first week Melo figures out what is normal for you. Your natural highs, your low points, and what shapes your score most.</p>
-      </div>
-    </div>
-    <div class="step">
-      <span class="step-n">03</span>
-      <div>
-        <p class="step-title">Get insights that actually make sense</p>
-        <p class="step-desc">Not "text someone today." Real patterns. Like why you feel off every Sunday or why this week feels lighter than last month.</p>
+      <div class="what-card wc3">
+        <span class="wtag t3">Patterns</span>
+        <h3>Why you feel off on certain days</h3>
+        <p>One bad day is just noise. A pattern of withdrawal every Sunday is something worth knowing about.</p>
+        <p class="what-example" style="border-left-color:#EA580C;color:#EA580C">"Melo spotted I isolate after big work weeks."</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMPARE -->
-<div class="compare-wrap">
-  <div class="compare-inner">
-    <p class="sec-label" style="text-align:center">Melo vs everything else</p>
-    <h2 class="sec-title">Built <i>different</i></h2>
-    <div class="compare-grid">
-      <div class="compare-col old">
-        <h3>Other apps</h3>
-        <ul>
-          <li>Remind you to text people</li>
-          <li>Count messages sent</li>
-          <li>Tell you to be more social</li>
-          <li>Treat all connections equally</li>
-        </ul>
+<!-- WHY IT MATTERS -->
+<section class="why">
+  <p class="sec-label">Why it matters</p>
+  <h2 class="sec-title">Loneliness is the health crisis<br><i>nobody is talking about</i></h2>
+  <p class="sec-sub" style="text-align:center;margin:0 auto 2.5rem">You already track your sleep, steps and heart rate. Social health is the missing piece.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-stat">27%</div>
+      <h3>of adults feel lonely regularly</h3>
+      <p>Even people with full social lives. Because it is not about quantity — it is about quality.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-stat">67%</div>
+      <h3>feel disconnected without knowing why</h3>
+      <p>Most people cannot explain why they feel off. Melo gives you the answer.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-stat">0</div>
+      <h3>apps measure your social health daily</h3>
+      <p>Until now. Melo is the first tool built specifically for this.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-stat">30s</div>
+      <h3>is all it takes each day</h3>
+      <p>Three quick taps. Less time than checking Instagram. More useful than almost anything else.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE DEMO -->
+<section class="demo-wrap">
+  <div class="demo-inner">
+    <p class="sec-label">Try it yourself</p>
+    <h2 class="sec-title">This is exactly what<br><i>Melo feels like</i></h2>
+    <p class="sec-sub" style="text-align:center;margin:0 auto 2.5rem">Three questions. 30 seconds. See your social health score.</p>
+    <div class="demo-phone">
+      <div class="prog">
+        <div class="pdot on" id="pd1"></div>
+        <div class="pdot" id="pd2"></div>
+        <div class="pdot" id="pd3"></div>
+        <div class="pdot" id="pd4"></div>
       </div>
-      <div class="compare-col">
-        <h3>Melo</h3>
-        <ul>
-          <li>Measures how connected you feel</li>
-          <li>Tracks quality not quantity</li>
-          <li>Shows your real patterns</li>
-          <li>Knows your close circle matters most</li>
-        </ul>
+      <div class="screen active" id="s1">
+        <p class="demo-greeting">How did today feel?</p>
+        <p class="demo-sub">Be honest. This is just for you.</p>
+        <div class="demo-opts">
+          <button class="demo-opt" onclick="pick(this,'s1','n1')">Really connected. I felt seen.</button>
+          <button class="demo-opt" onclick="pick(this,'s1','n1')">Okay. Nothing special.</button>
+          <button class="demo-opt" onclick="pick(this,'s1','n1')">A bit lonely, honestly.</button>
+          <button class="demo-opt" onclick="pick(this,'s1','n1')">Drained by people today.</button>
+        </div>
+        <button class="demo-next" id="n1" onclick="go(2)" disabled>Continue →</button>
+      </div>
+      <div class="screen" id="s2">
+        <p class="demo-greeting">Who did you spend time with?</p>
+        <p class="demo-sub">Tap all that apply.</p>
+        <div class="demo-people">
+          <button class="demo-person" onclick="tog(this,'n2')">Close friend</button>
+          <button class="demo-person" onclick="tog(this,'n2')">Partner</button>
+          <button class="demo-person" onclick="tog(this,'n2')">Family</button>
+          <button class="demo-person" onclick="tog(this,'n2')">Colleague</button>
+          <button class="demo-person" onclick="tog(this,'n2')">Acquaintance</button>
+          <button class="demo-person" onclick="tog(this,'n2')">Nobody</button>
+        </div>
+        <button class="demo-next" id="n2" onclick="go(3)" disabled>Continue →</button>
+      </div>
+      <div class="screen" id="s3">
+        <p class="demo-greeting">How did it leave you?</p>
+        <p class="demo-sub">Your gut feeling matters most.</p>
+        <div class="energy-opts">
+          <button class="energy-opt" onclick="pickE(this,'n3')"><span class="e-emoji">✨</span><span class="e-label">Energised</span></button>
+          <button class="energy-opt" onclick="pickE(this,'n3')"><span class="e-emoji">😌</span><span class="e-label">At peace</span></button>
+          <button class="energy-opt" onclick="pickE(this,'n3')"><span class="e-emoji">😶</span><span class="e-label">Neutral</span></button>
+          <button class="energy-opt" onclick="pickE(this,'n3')"><span class="e-emoji">🪫</span><span class="e-label">Drained</span></button>
+        </div>
+        <button class="demo-next" id="n3" onclick="go(4)" disabled>See my score →</button>
+      </div>
+      <div class="screen" id="s4">
+        <div class="result-num" id="rnum">74</div>
+        <p class="result-label">Your connection score today</p>
+        <div class="result-insight" id="rins">You are showing up for your social health. Melo will track your patterns over time and surface insights you would never spot alone.</div>
+        <a href="https://tally.so/r/b568ZL" target="_blank" class="cta-btn" style="display:block;text-align:center;margin-top:1rem;font-size:13px;padding:11px 22px">Join waitlist to track this daily →</a>
+        <button class="restart-btn" onclick="restart()">Try again</button>
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-wrap">
+  <p class="sec-label">Questions</p>
+  <h2 class="sec-title" style="margin-bottom:1.75rem">Good to know</h2>
+  <div class="faq-item" onclick="faq(this)">
+    <div class="faq-q">Is Melo free? <span class="faq-icon">+</span></div>
+    <p class="faq-a">Yes. Melo will be free when it launches. Early access members will always get the core features for free.</p>
+  </div>
+  <div class="faq-item" onclick="faq(this)">
+    <div class="faq-q">When does it launch? <span class="faq-icon">+</span></div>
+    <p class="faq-a">We are building right now. Waitlist members will be first to get access and will help shape what Melo becomes.</p>
+  </div>
+  <div class="faq-item" onclick="faq(this)">
+    <div class="faq-q">What data does it collect? <span class="faq-icon">+</span></div>
+    <p class="faq-a">Only what you choose to share. Melo is built on your self-reported check-ins. No phone scanning, no contact access, no passive tracking without your knowledge.</p>
+  </div>
+  <div class="faq-item" onclick="faq(this)">
+    <div class="faq-q">Is this a mental health app? <span class="faq-icon">+</span></div>
+    <p class="faq-a">Not exactly. Melo is a wellness tracker, like Oura for your sleep. It is not therapy and does not replace professional support. It helps you understand yourself better.</p>
+  </div>
+  <div class="faq-item" onclick="faq(this)">
+    <div class="faq-q">Will my data ever be shared? <span class="faq-icon">+</span></div>
+    <p class="faq-a">Never. Your data is private and will never be sold or shared with third parties. Full stop.</p>
+  </div>
+</section>
 
 <!-- BOTTOM CTA -->
 <section class="bottom" id="join">
-  <div class="bottom-inner">
-    <h2>Ready to understand<br>your <i>social health?</i></h2>
-    <p>Join the waitlist. Be first when Melo launches. It is free.</p>
-    <a href="https://tally.so/r/b568ZL" target="_blank" class="cta-big">Join waitlist →</a>
-    <p class="form-note">Free · No spam · Cancel anytime</p>
-  </div>
+  <h2>Ready to understand<br>your <i>social health?</i></h2>
+  <p>Join the waitlist. Be first when Melo launches. It is free.</p>
+  <a href="https://tally.so/r/b568ZL" target="_blank" class="cta-btn">Join the waitlist →</a>
 </section>
 
 <footer>© 2026 Melo · Making social health visible</footer>
 
-
+<script>
+var ans={s1:null,s3:null};
+function pick(el,sc,nxt){
+  el.parentNode.querySelectorAll('.demo-opt').forEach(function(o){o.classList.remove('sel')});
+  el.classList.add('sel');ans[sc]=el.textContent;
+  document.getElementById(nxt).disabled=false;
+}
+function tog(el,nxt){
+  el.classList.toggle('sel');
+  var any=document.querySelectorAll('#s2 .demo-person.sel').length>0;
+  document.getElementById(nxt).disabled=!any;
+}
+function pickE(el,nxt){
+  el.parentNode.querySelectorAll('.energy-opt').forEach(function(o){o.classList.remove('sel')});
+  el.classList.add('sel');ans.s3=el.querySelector('.e-label').textContent;
+  document.getElementById(nxt).disabled=false;
+}
+function go(n){
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active')});
+  document.getElementById('s'+n).classList.add('active');
+  document.querySelectorAll('.pdot').forEach(function(d){d.classList.remove('on')});
+  document.getElementById('pd'+n).classList.add('on');
+  if(n===4)show();
+}
+function show(){
+  var sc=62,ins="You are showing up for your social health. Melo will track your patterns over time and surface insights you would never spot alone.";
+  if(ans.s1&&ans.s1.indexOf('connected')>-1){sc=84;ins="You had a genuinely connected day. These are the moments that build your social health over time. Melo will show you how to have more of them.";}
+  else if(ans.s1&&ans.s1.indexOf('lonely')>-1){sc=46;ins="Feeling lonely even with people around is more common than you think. That is exactly what Melo is built to help you understand and change.";}
+  else if(ans.s1&&ans.s1.indexOf('Drained')>-1){sc=38;ins="Social exhaustion is real data. Melo helps you identify which relationships drain you so you can protect your energy and invest it where it matters.";}
+  if(ans.s3==='Energised')sc=Math.min(sc+12,99);
+  else if(ans.s3==='Drained')sc=Math.max(sc-12,20);
+  document.getElementById('rnum').textContent=sc;
+  document.getElementById('rins').textContent=ins;
+}
+function restart(){
+  ans={s1:null,s3:null};
+  document.querySelectorAll('.demo-opt,.demo-person,.energy-opt').forEach(function(el){el.classList.remove('sel')});
+  ['n1','n2','n3'].forEach(function(id){document.getElementById(id).disabled=true});
+  go(1);
+  document.querySelectorAll('.pdot').forEach(function(d){d.classList.remove('on')});
+  document.getElementById('pd1').classList.add('on');
+}
+function faq(el){
+  var open=el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(f){f.classList.remove('open')});
+  if(!open)el.classList.add('open');
+}
+</script>
 </body>
 </html>
